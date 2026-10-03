@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tenant Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">T</span>
+        <div>
+          <h1>Tenant Management</h1>
+        </div>
+      </div>
+      <nav>
+        <button class="nav-btn active">Dashboard</button>
+        <button class="nav-btn">Tenants</button>
+        <button class="nav-btn">Reports</button>
+      </nav>
+      <button class="primary-btn" id="newTenantBtn">+ New Tenant</button>
+    </header>
+
+    <main class="container">
+      <section class="stats-grid">
+        <article class="stat-card">
+          <span class="label">Total Tenants</span>
+          <strong id="totalTenants">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="label">Active Plans</span>
+          <strong id="activePlans">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="label">Storage Used</span>
+          <strong id="storageUsed">0 GB</strong>
+        </article>
+        <article class="stat-card">
+          <span class="label">Monthly Revenue</span>
+          <strong id="monthlyRevenue">$0</strong>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Tenant Directory</h2>
+            <button class="secondary-btn" id="filterBtn">Filter</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tenant</th>
+                  <th>Industry</th>
+                  <th>Plan</th>
+                  <th>Status</th>
+                  <th>Storage</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tenantTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="panel side-panel">
+          <div class="panel-header">
+            <h2>Provisioning</h2>
+          </div>
+          <form id="tenantForm">
+            <div class="form-group">
+              <label for="tenantName">Tenant Name</label>
+              <input id="tenantName" type="text" placeholder="Acme Corp" required />
+            </div>
+            <div class="form-group">
+              <label for="tenantIndustry">Industry</label>
+              <select id="tenantIndustry">
+                <option>Technology</option>
+                <option>Finance</option>
+                <option>Healthcare</option>
+                <option>Retail</option>
+                <option>Education</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tenantPlan">Plan</label>
+              <select id="tenantPlan">
+                <option>Starter</option>
+                <option>Growth</option>
+                <option>Enterprise</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tenantStatus">Status</label>
+              <select id="tenantStatus">
+                <option>Active</option>
+                <option>Pending</option>
+                <option>Suspended</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tenantStorage">Storage (GB)</label>
+              <input id="tenantStorage" type="number" min="1" max="5000" value="50" />
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="primary-btn">Save Tenant</button>
+              <button type="button" class="secondary-btn" id="cancelBtn">Cancel</button>
+            </div>
+          </form>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
